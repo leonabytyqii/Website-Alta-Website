@@ -21,6 +21,46 @@
         </ul>
     </nav>
     <br>
+    <!--Carousel-->
+    <div class="slideshow-container">
+
+        <div class="mySlides ">
+            <img src="./images/img1.webp" alt="Image 1">
+            <div class="text">
+                <h1>Your Next Adventure <br> Starts Here!</h1>
+                <p id="p1"> <i>The way up the top of the place is always no longer than you think!</i> </p>
+            </div>
+            <div class="container">
+                <form class="form">
+                    <label for="destination" style="margin-left: 7%;">Where to? </label>
+                    <label for="checkout" style="margin-left: 14%;">Check In </label>
+                    <label for="checkin" style="margin-left: 14%;">Check Out </label>
+                    <label for="age" style="margin-left: 14%;">Guests</label>
+                    <br>
+
+                    <input type="text" id="search" name="search" placeholder="Search your destination...">
+                    <input type="date" name="dob" id="data">
+                    <input type="date" name="dob" id="data">
+                    <input type="number" name="age" id="" placeholder="1">
+                    <br>
+                    <input type="submit" value="Search" id="submit">
+                </form>
+            </div>
+        </div>
+        <div class="mySlides">
+            <img src="./images/img2.webp" alt="Image 2" style="width:100%">
+            <div class="text">Caption Two</div>
+        </div>
+        <div class="mySlides ">
+            <img src="./images/img3.png" alt="Image 3" style="width:100%">
+            <div class="text">Caption Three</div>
+        </div>
+        <div class="carousel">
+            <button class="carousel-control prev" aria-label="Previous" onclick="plusSlides(-1)">&lt;</button>
+            <button class="carousel-control next" aria-label="Next" onclick="plusSlides(1)">&gt;</button>
+        </div>
+    </div>
+
 </body>
 
 </html>

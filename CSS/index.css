@@ -29,3 +29,108 @@ transition: 0.1s;
 
 .nav-links li a:hover {color: #ffe066;}
 
+/* Carousel container */
+.slideshow-container {
+padding-top: 35px;
+position: flex;
+position: relative;
+max-width: 100%;
+margin: auto;
+overflow: hidden; 
+}
+
+
+.mySlides {
+display:none; 
+position: relative;
+}
+
+
+.mySlides img {
+width: 100%; 
+height: 650px; 
+}
+
+/* Butonat e navigimit */
+.carousel-control {
+cursor: pointer;
+position: absolute;
+top: 50%;
+width: auto;
+padding: 16px;
+margin-top: -22px;
+color: white;
+font-weight: bold;
+font-size: 18px;
+border: none;
+background-color: rgba(0, 0, 0, 0.5); 
+user-select: none;
+z-index: 10;
+}
+
+.carousel-control.prev {
+left: 0;
+}
+
+.carousel-control.next {
+right: 0;
+}
+
+
+
+/*Container mbrenda caroselit*/
+.text {
+padding:60px 30px;
+position: absolute;
+top: 10px; 
+left: 10px; 
+color: #000; 
+font-size: xx-large;
+font-weight: bold;
+letter-spacing: 3px;
+}
+#p1{
+color: #000;
+font-size: large;
+padding-top: 30px;
+font-weight: lighter;
+}
+
+.container {
+padding: 20px; 
+position: absolute;
+bottom: 50px; 
+left: 50%; 
+transform: translateX(-50%); 
+background-color: rgba(255, 255, 255, 0.8);
+border: 2px solid white; 
+border-radius: 40px; 
+box-shadow: 0 4px 8px rgba(41, 40, 40, 0.2); 
+display: flex;
+flex-direction: column;
+margin-bottom: 30px;
+width: 825px;
+}
+
+.container input[type="text"],
+.container input[type="date"],
+.container input[type="submit"],
+.container input[type="number"]{
+padding: 12px;
+margin: 15px;
+border: 1px solid #ccc; 
+border-radius: 10px; 
+}
+
+.container input[type="submit"] {
+background-color: #0099a8; 
+color: white; 
+cursor: pointer; 
+border: none; 
+transition: background-color 0.3s ease;
+margin-left: 45%;
+}
+.container input[type="submit"]:hover {
+background-color: #06bfd0;
+}
+
