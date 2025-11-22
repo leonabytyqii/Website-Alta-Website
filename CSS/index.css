@@ -4,9 +4,9 @@
 background: #0099a8;
 display: flex;
 justify-content: space-between;
-padding: 15px 60px;
-position: fixed; top: 0; left: 0; width: 100%;
+padding: 20px 60px;
 box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+width: 100%;
 }
 
 .logo {
@@ -27,7 +27,12 @@ font: 500 16px Arial, sans-serif;
 transition: 0.1s;
 }
 
-.nav-links li a:hover {color: #ffe066;}
+.nav-links li a:hover {
+  color: #ffe066;}
+
+  .nav-links li a:active {
+    color: #ffea00;
+  }
 
 /* Carousel container */
 .slideshow-container {
