@@ -139,6 +139,66 @@ transition: 0.1s;
   background-color: #06bfd0;
 }
 
+/*Top destinations*/
+.destinations-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 30px;
 
+}
+
+.destination-card{
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+     width: 350px;
+    align-items: center;
+   overflow: hidden;
+  }  
+
+
+
+.destination-card img{
+   height: 100%;
+    width: 100%;
+    cursor: pointer;
+   }
+
+.destination-card:hover {
+    transform: translateY(-10px);
+   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.top-destinations h2{
+  position: relative;
+  text-align: center;
+  font-size: xx-large;
+  margin-top: 40px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  }
+.text-card{
+  position:absolute;
+ padding-top: 120px;
+ cursor:pointer;
+ font-weight: bolder;
+ color: white;
+
+}
+.btn-discover {
+  padding: 20px 25px;
+  background-color: #0099a8;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bolder;
+}
+
+.btn-discover:hover {
+  background-color: #06bfd0;
+}
 
 
