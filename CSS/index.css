@@ -244,3 +244,48 @@ transition: 0.1s;
     transform: translateX(-50%);
   }
 }
+
+/* Why us */
+.why-us {
+width: 100%;
+margin: 0 auto;
+text-align: center; 
+padding: 40px 20px;
+background-color: #f7f7f7;
+}
+
+.why-us h2 {
+margin-top: 20px;
+margin-bottom: 80px;
+font-size: xx-large;
+}
+
+.why-us-content {
+display: flex;
+flex-wrap: wrap; /* për mobile */
+justify-content: center;
+align-items: flex-start;
+gap: 40px;
+margin-top: 20px;
+}
+
+
+.why-us-text {
+flex: 1 1 500px; 
+text-align: left;
+font-size: large;
+}
+
+.video-container {
+flex: 1 1 500px; 
+display: flex;
+justify-content: center; 
+align-items: center; 
+padding-left: 20px;
+}
+
+.video-container img {
+max-width: 100%;
+height: auto;
+cursor: pointer;
+}
