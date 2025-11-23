@@ -289,3 +289,62 @@ max-width: 100%;
 height: auto;
 cursor: pointer;
 }
+/*footeri*/
+.footer {
+ 
+  background-color: #0099a8;
+  display: flex;
+  justify-content: space-between;
+  
+  padding: 40px 70px;
+  color: white;
+ 
+
+}
+
+.footer h2 {
+  margin-bottom: 15px;
+  font-size: 26pxpx;
+  color: white;
+} 
+.footer a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 8px 0;
+  display: block;
+
+}
+
+.footer a :hover{
+  opacity: 0.8;
+
+}
+
+
+.contactfooter, 
+.aboutfooter,
+.otherservicesfooter{
+  width: 20%;
+  justify-content: space-between;
+ margin-bottom: 40px;
+ margin-left: 5%;
+ 
+}
+
+.logo1 {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+
+}
+
+.logo1 img{
+  
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+  
+}
+
+
