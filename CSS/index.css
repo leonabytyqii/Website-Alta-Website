@@ -203,4 +203,44 @@ transition: 0.1s;
   background-color: #06bfd0;
 }
 
+/* Companies*/
 
+.companies {
+    width: 100%;
+    overflow: hidden;
+    position: sticky; 
+    background-color: #fff; 
+    z-index: 1000;   
+    padding: 20px 0;
+}
+
+.companies-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    animation: slide 20s linear infinite; 
+}
+
+.companies-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 40px;
+  margin-bottom: 20px;
+  animation: slide 10s linear infinite;
+
+}
+.companies-container img{
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+}
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
