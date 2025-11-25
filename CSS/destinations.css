@@ -5,17 +5,13 @@ background: #0099a8;
 display: flex;
 justify-content: space-between;
 padding: 20px 60px;
-width: 100%;
 box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-align-items: center;
+width: 100%;
 }
 
 .logo {
 color: #ffea00;
 font: bold 22px Arial, sans-serif;
-display: flex;
-    align-items: center;
-
 }
 
 .nav-links {
@@ -34,52 +30,11 @@ transition: 0.1s;
 .nav-links li a:hover {
   color: #ffe066;}
 
-   .nav-links li a.active {
-    color: #ffe066;
+  .nav-links li a.active {
+    color: #ffea00;
   }
 
-
-/*reset*/
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #ffffff;
-}
-
-/* NAVBAR */
-.navbar {
-    background: #0099a8;
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 60px;
-    align-items: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-.logo {
-    color: #ffea00;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 35px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-}
-/* HERO SECTION */
+/* Discover more*/
 .discovermore {
     display: flex;
     align-items: center;
@@ -105,7 +60,7 @@ body {
     object-fit: cover;
 }
 
-/* DESTINATIONS GRID */
+/* destinations list */
 .destinations-container {
     display: flex;
     flex-wrap: wrap;

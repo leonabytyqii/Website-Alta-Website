@@ -30,7 +30,7 @@ transition: 0.1s;
 .nav-links li a:hover {
   color: #ffe066;}
 
-  .nav-links li a:active {
+.nav-links li a.active {
     color: #ffea00;
   }
 
