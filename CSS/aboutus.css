@@ -68,9 +68,7 @@ transition: 0.1s;
 /* who */
 .who {
  padding-top: 5%;
-  background: #ffffff;
-  box-shadow: #0099a8;
-}
+ }
 
 .who-inner {
   max-width: 1300px;
@@ -78,7 +76,7 @@ transition: 0.1s;
   display: flex;
   align-items: center; 
   justify-content: flex-start;
-  background: #fff;
+  background: #d3d3d357;
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
@@ -89,7 +87,7 @@ transition: 0.1s;
   padding-top: 10px; 
 }
 .whop{
-    color: gray;
+    color: #3e3e3e;
     font-size: 20px;
     padding-top: 50px;
 }
@@ -162,13 +160,13 @@ margin-bottom: 6px;
 .mission-card h4 {
 font-size: 25px;
 margin-bottom: 6px;
-color: #eee;
+color: #ffffff;
 }
 
 .mission-card p {
 margin-top: 18px;
 font-size: 18px;
-color: #555;
+color: #3e3e3e;
 }
 /* what we offer*/
 .offer-section {
@@ -191,6 +189,16 @@ width: 48%;
 text-align: left;
 box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
+.offer-card h3{
+font-size: 20px;
+margin-bottom: 6px;
+color: #ffffff;
+}
+.offer-card p {
+margin-top: 18px;
+font-size: 18px;
+color: #3e3e3e;
+}
 
 /* Meet the team */
 .team-section {
@@ -206,7 +214,7 @@ margin-top: 30px;
 }
 
 .team-card {
-background: #fafafa;
+background: #d3d3d357;
 padding: 20px;
 border-radius: 12px;
 width: 32%;
@@ -223,12 +231,15 @@ margin-bottom: 15px;
 }
 
 .team-card h3 {
-margin-bottom: 10px;
 font-size: 20px;
+margin-bottom: 6px;
+
 }
 
 .team-card p {
-color: #555;
+margin-top: 18px;
+font-size: 18px;
+color: #3e3e3e;
 }
 
 /* Why follow our journey */
@@ -253,13 +264,17 @@ box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
 .why-card h3 {
-margin-bottom: 10px;
 font-size: 20px;
+margin-bottom: 6px;
+color: #ffffff;
 }
 
 .why-card p {
-color: #444;
+margin-top: 18px;
+font-size: 18px;
+color: #3e3e3e;
 }
+
 /*footeri*/
 .footer {
  
