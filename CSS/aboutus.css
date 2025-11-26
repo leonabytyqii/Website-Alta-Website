@@ -131,6 +131,7 @@ font-size: 30px;
 margin-bottom: 40px;
 display: flex;
 justify-content: center;
+
 }
 
 .mission-cards {
@@ -139,15 +140,17 @@ justify-content: space-between;
 padding: 0px 25px;
 }
 
+
 .mission-card {
 width: 32%; 
 padding: 30px 20px;
 border-radius: 20px;
-background: #f7f8fc;
+background: #189ba7bd;
 display: flex;
 flex-direction: column;
 min-height: 180px; 
 box-sizing: border-box;
+box-shadow: 0 4px 12px rgba(59, 255, 229, 0.2);
 }
 
 .mission-card .icon {
@@ -158,6 +161,7 @@ margin-bottom: 6px;
 .mission-card h4 {
 font-size: 25px;
 margin-bottom: 6px;
+color: #eee;
 }
 
 .mission-card p {
@@ -226,4 +230,32 @@ font-size: 20px;
 color: #555;
 }
 
+/* Why follow our journey */
+.why-section {
+padding: 50px 80px;
+text-align: center;
+}
 
+.why-cards {
+display: flex;
+gap: 20px;
+margin-top: 30px;
+}
+
+.why-card {
+background: #f7f8fc;
+padding: 20px;
+border-radius: 12px;
+width: 32%;
+text-align: left;
+box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.why-card h3 {
+margin-bottom: 10px;
+font-size: 20px;
+}
+
+.why-card p {
+color: #444;
+}
