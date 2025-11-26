@@ -69,6 +69,7 @@ transition: 0.1s;
 .who {
  padding-top: 5%;
   background: #ffffff;
+  box-shadow: #0099a8;
 }
 
 .who-inner {
@@ -80,7 +81,7 @@ transition: 0.1s;
   background: #fff;
   padding: 40px;
   border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   margin-top: 20px;
 }
 
@@ -183,7 +184,7 @@ margin-top: 30px;
 }
 
 .offer-card {
-background: #f7f8fc;
+background: #189ba7bd;
 padding: 20px;
 border-radius: 12px;
 width: 48%; 
@@ -243,7 +244,7 @@ margin-top: 30px;
 }
 
 .why-card {
-background: #f7f8fc;
+background: #189ba7bd;
 padding: 20px;
 border-radius: 12px;
 width: 32%;
