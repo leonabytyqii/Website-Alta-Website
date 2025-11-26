@@ -179,15 +179,3 @@ transition: 0.1s;
   margin: 8px 0;
 }
 
-.payments {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin: 10px 0;
-}
-
-.payments img {
-  width: 55px;
-  height: 20px;
-
-}

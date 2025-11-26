@@ -101,43 +101,7 @@ transition: 0.1s;
  
 }
 
-.container {
-  padding: 20px; 
-  position: absolute;
-  bottom: 50px; 
-  left: 50%; 
-  transform: translateX(-50%); 
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 2px solid white; 
-  border-radius: 40px; 
-  box-shadow: 0 4px 8px rgba(41, 40, 40, 0.2); 
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 30px;
-  width: 800px;
-}
 
-.container input[type="text"],
-.container input[type="date"],
-.container input[type="submit"],
-.container input[type="number"]{
-  padding: 12px;
-  margin: 15px;
-  border: 1px solid #ccc; 
-  border-radius: 10px; 
-}
-
-.container input[type="submit"] {
-  background-color: #0099a8; 
-  color: white; 
-  cursor: pointer; 
-  border: none; 
-  transition: background-color 0.3s ease;
- margin-left: 45%;
-}
-.container input[type="submit"]:hover {
-  background-color: #06bfd0;
-}
 
 /*Top destinations*/
 .destinations-container{
@@ -359,15 +323,3 @@ cursor: pointer;
   margin: 8px 0;
 }
 
-.payments {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin: 10px 0;
-}
-
-.payments img {
-  width: 55px;
-  height: 20px;
- 
-}
