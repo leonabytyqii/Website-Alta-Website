@@ -26,6 +26,12 @@ text-decoration: none;
 font: 500 16px Arial, sans-serif;
 transition: 0.1s;
 }
+.nav-links li a:hover {
+  color: #ffe066;}
+
+.nav-links li a.active {
+    color: #ffea00;
+  }
 
 /*Sign up container*/
 body {
