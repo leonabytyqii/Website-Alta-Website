@@ -1,11 +1,46 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.navbar {
+background: #0099a8;
+display: flex;
+justify-content: space-between;
+padding: 20px 60px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+width: 100%; 
+position: absolute; 
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo {
+color: #ffea00;
+font: bold 22px Arial, sans-serif;
+}
+
+.nav-links {
+display: flex;
+list-style: none;
+gap: 35px;
+}
+
+.nav-links li a {
+color: #fff;
+text-decoration: none;
+font: 500 16px Arial, sans-serif;
+transition: 0.1s;
+}
+
+.nav-links li a:hover {
+  color: #ffe066;}
+
+.nav-links li a.active {
+    color: #ffea00;
+  }
 
 /*Log in container*/
 body {
-  background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600") no-repeat center center/cover;
-  height:100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600");
    background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -19,8 +54,8 @@ body {
   width: 100%;
   max-width: 420px;
   padding-top: 70px;
-  margin: 10%;
-  padding-bottom: 200px;
+  margin: 140px auto 150px auto;
+
 }
 
 .title {
@@ -91,6 +126,75 @@ input {
 
 .signup a {
   color: #1a73e8;
+}
+
+/*footeri*/
+.footer {
+ 
+  background-color: #0099a8;
+  display: flex;
+  justify-content: space-between;
+   padding: 40px 70px;
+  color: white;
+ 
+
+}
+
+.footer h2 {
+  margin-bottom: 15px;
+  font-size: 26pxpx;
+  color: white;
+} 
+.footer a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 8px 0;
+  display: block;
+
+}
+
+.footer a :hover{
+  opacity: 0.8;
+
+}
+
+
+.contactfooter, 
+.aboutfooter,
+.otherservicesfooter{
+  width: 20%;
+  justify-content: space-between;
+ margin-bottom: 40px;
+ margin-left: 5%;
+ 
+}
+
+.logo1 {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+
+}
+
+.logo1 img{
+  
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+  
+}
+
+/*footer bottom*/
+.footer-bottom {
+  text-align: center;
+  padding: 30px 0 40px;
+  color: black;
+  font-size: 20px;
+}
+
+.footer-bottom p {
+  margin: 8px 0;
 }
 
 
