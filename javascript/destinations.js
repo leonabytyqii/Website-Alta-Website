@@ -99,5 +99,29 @@ function ktheTallin(){
   imazhi8.src = "./images/tallin.avif";
 }
 
+//Reaykjavik
+function ndryshoReykjavik(){
+const imazhi9 = document.getElementById("foto9");
+imazhi9.setAttribute("src", "https://images.prismic.io/perlan/67b9ae3a-0794-464b-b84c-fae8e7f46b3c_Reykjavi%CC%81k+Esjan+Nor%C3%B0urljo%CC%81s+fra%CC%81+A%CC%81lftanesi.++13439-157-5442.png?auto=compress,format");
+}
+
+function ktheReykjavik(){
+  const imazhi9 = document.getElementById("foto9");
+  imazhi9.src = "./images/reykjavik.webp";
+}
+
+
+//Roma
+function ndryshoRoma(){
+const imazhi10 = document.getElementById("foto10");
+imazhi10.setAttribute("src", "https://www.barcelo.com/guia-turismo/wp-content/uploads/2019/09/roma-1.jpg");
+}
+
+function ktheRoma(){
+  const imazhi10 = document.getElementById("foto10");
+  imazhi10.src = "./images/romafountain.webp";
+}
+
+
 
 
