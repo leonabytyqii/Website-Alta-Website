@@ -53,5 +53,16 @@ function ktheLisbon(){
   imazhi4.src = "./images/lisbon.jpg";
 }
 
+//Vienna
+function ndryshoVienna(){
+const imazhi5 = document.getElementById("foto5");
+  imazhi5.setAttribute("src", "https://res-1.cloudinary.com/gorealtravel/image/upload/,f_auto,q_50/v1563435212/production/marketing/city/5cf0e91910e1700008464182/city_main_image/vienna.webp");
+}
+
+function ktheVienna(){
+  const imazhi5 = document.getElementById("foto5");
+  imazhi5.src = "./images/Vienna.jpg";
+}
+
 
 
