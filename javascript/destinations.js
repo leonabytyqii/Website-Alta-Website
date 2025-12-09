@@ -42,4 +42,16 @@ function ktheKroacia(){
   imazhi3.src = "./images/kroaciaa.jpg";
 }
 
+//Lisbon
+function ndryshoLisbon(){
+const imazhi4 = document.getElementById("foto4");
+  imazhi4.setAttribute("src", "https://static.toiimg.com/photo/56752191/.jpg");
+}
+
+function ktheLisbon(){
+  const imazhi4 = document.getElementById("foto4");
+  imazhi4.src = "./images/lisbon.jpg";
+}
+
+
 
