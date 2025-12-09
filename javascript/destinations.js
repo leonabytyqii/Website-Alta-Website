@@ -122,6 +122,17 @@ function ktheRoma(){
   imazhi10.src = "./images/romafountain.webp";
 }
 
+//Finland
+function ndryshoFinland(){
+const imazhi11 = document.getElementById("foto11");
+imazhi11.setAttribute("src", "https://image.tallink.com/image/upload/f_auto,fl_lossy,q_auto:best,h_1050,w_2448/travel/destinations/finland/finland-koli-national-park-wide.jpg");
+}
+
+function ktheFinland(){
+  const imazhi11 = document.getElementById("foto11");
+  imazhi11.src = "./images/finland.webp";
+}
+
 
 
 
