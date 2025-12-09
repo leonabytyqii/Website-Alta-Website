@@ -64,5 +64,18 @@ function ktheVienna(){
   imazhi5.src = "./images/Vienna.jpg";
 }
 
+//Budapest
+
+function ndryshoBudapest(){
+const imazhi6 = document.getElementById("foto6");
+imazhi6.setAttribute("src", "https://www.budapest.org/en/wp-content/uploads/sites/101/budapest-danube-panorama-hd.jpg");
+}
+
+function ktheBudapest(){
+  const imazhi6 = document.getElementById("foto6");
+  imazhi6.src = "./images/Budapest.jpg";
+}
+
+
 
 
