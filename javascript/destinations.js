@@ -76,6 +76,28 @@ function ktheBudapest(){
   imazhi6.src = "./images/Budapest.jpg";
 }
 
+//Riga
+function ndryshoRiga(){
+const imazhi7 = document.getElementById("foto7");
+imazhi7.setAttribute("src", "https://www.cktravels.com/wp-content/uploads/2019/10/IMG_5880.jpg");
+}
+
+function ktheRiga(){
+  const imazhi7 = document.getElementById("foto7");
+  imazhi7.src = "./images/riga.jpg";
+}
+
+
+//Tallin
+function ndryshoTallin(){
+const imazhi8 = document.getElementById("foto8");
+imazhi8.setAttribute("src", "https://www.ferryscanner.com/_next/image?url=https%3A%2F%2Fassets.ferryscanner.com%2Fmedia%2F2023%2F01%2Fferryscanner-%E2%80%93-tallinn.jpg&w=3840&q=75");
+}
+
+function ktheTallin(){
+  const imazhi8 = document.getElementById("foto8");
+  imazhi8.src = "./images/tallin.avif";
+}
 
 
 
