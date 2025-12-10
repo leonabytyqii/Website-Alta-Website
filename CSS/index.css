@@ -40,6 +40,7 @@ transition: 0.1s;
    max-width: 100%;
   margin: auto;
   overflow: hidden; 
+  position: relative;   
 }
 
 
@@ -64,6 +65,7 @@ transition: 0.1s;
   margin-top: -22px;
   color: white;
   font-weight: bold;
+  transform: translateY(-50%);
   font-size: 18px;
   border: none;
   background-color: rgba(0, 0, 0, 0.5); 
@@ -165,6 +167,10 @@ transition: 0.1s;
 
 .btn-discover:hover {
   background-color: #06bfd0;
+}
+.destinationwrap{
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 /* Companies*/
@@ -412,4 +418,122 @@ border-radius: 10%;
     opacity: 1;
     transform: scale(1);
   }
+}
+
+
+/* telefon (0–767px) */
+@media (max-width: 767px) {
+
+.navbar {
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+.nav-links {
+flex-direction: column;
+gap: 10px;
+align-items: center;
+}
+.nav-links{
+  display: block;
+    width: 100%;
+    text-align: center;
+}
+ .mySlides img {
+    height: 280px;
+    object-fit: cover;
+ }
+.text {
+top: 8%;
+left: 50%;
+transform: translateX(-50%);
+text-align: center;
+max-width: 80%;
+letter-spacing: 1px;
+}
+.text h1{
+  font-size: 22px;             
+    line-height: 1.25;
+}
+
+#p1 { font-size: 15px; 
+     padding-top: 8px;
+   
+}
+
+.destinations-container { flex-direction: column; }
+.destination-card { width: 100%; margin: 15px 0; }
+
+.why-us-content { flex-direction: column; }
+.why-us-text { font-size: 14px; }
+
+.footer {
+flex-direction: column;
+align-items: center;
+text-align: center;
+gap: 25px;
+}
+
+.contactfooter, 
+.aboutfooter, 
+.otherservicesfooter {
+width: 100%;
+text-align: center;
+}
+.logo1 {
+    justify-content: center;
+}
+
+.popup-inner { width: 70%;
+}
+}
+
+
+
+
+/* Tablet (768–1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+
+ .mySlides img {
+    height: 280px;
+    object-fit: cover;
+
+ }
+ .text{
+  font-size: 22px; 
+  max-width: 400px;
+  top: 10%;
+ }
+.text h1{
+  font-size: 26px;
+    line-height: 1.25;
+}
+ #p1{
+   font-size: 17px;
+ }
+.destination-card { width: 260px; }
+
+
+.company-logo img { width: 120px; }
+
+.contactfooter, 
+.aboutfooter, 
+.otherservicesfooter { width: 45%; }
+}
+
+
+
+/*  desktop me i madh se 1440 */
+@media (min-width: 1440px) {
+
+
+.mySlides img { height: 700px; }
+.text { font-size: 32px; max-width: 600px; }
+
+
+.destination-card { width: 330px; }
+
+.company-logo img { width: 150px; }
 }
