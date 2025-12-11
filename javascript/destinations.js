@@ -133,6 +133,17 @@ function ktheFinland(){
   imazhi11.src = "./images/finland.webp";
 }
 
+// menu
+const menu = document.getElementById("menu");
+const navLinks = document.getElementById("navLinks");
+
+if (menu && navLinks) {
+  menu.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+}
+
+
 
 
 

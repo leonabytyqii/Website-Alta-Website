@@ -34,6 +34,21 @@ transition: 0.1s;
     color: #ffea00;
   }
 
+ .menu {
+  display: none;          /* fshihet në desktop */
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.menu span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
 /* Discover more*/
 .discovermore {
     display: flex;
@@ -123,7 +138,7 @@ transition: 0.1s;
 
 .footer h2 {
   margin-bottom: 15px;
-  font-size: 26pxpx;
+  font-size: 26px;
   color: white;
 } 
 .footer a {
@@ -135,7 +150,7 @@ transition: 0.1s;
 
 }
 
-.footer a :hover{
+.footer a:hover{
   opacity: 0.8;
 
 }
@@ -177,5 +192,174 @@ transition: 0.1s;
 
 .footer-bottom p {
   margin: 8px 0;
+}
+
+/*per telefon*/
+@media (max-width: 767px) {
+
+   .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 20px 60px;
+    gap: 15px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    margin-top: 15px;
+    background: #0099a8;
+    padding bottom: 15px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu {
+    display: flex;
+  }
+
+   .discovermore {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .discovermore1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .discovermore1 h1 {
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  .discovermore1 p {
+    width: 100%;
+  font-size: 16px;
+  }
+
+  .discover-img {
+    max-width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+}
+
+  .destinations-container { 
+    flex-direction: column; 
+    padding: 30px 16px;
+  }
+
+  .destination-card { 
+    width: 100%; 
+    margin: 15px 0; 
+  }
+
+  /* footer si te index */
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+    padding: 30px 20px;
+  }
+
+  .contactfooter, 
+  .aboutfooter, 
+  .otherservicesfooter {
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .logo1 {
+    justify-content: center;
+  }
+
+  .popup-inner { width: 70%; } 
+}
+
+/* Tablet (768–1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  /* Discover More */
+  .discovermore {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 40px;
+    gap: 30px;
+  }
+
+  .discovermore1 {
+    font-size: 28px;
+  }
+
+  .discovermore1 h1 {
+    font-size: 32px;
+  }
+
+  .discovermore1 p {
+    width: 100%;
+    font-size: 17px;
+  }
+
+  .discover-img {
+    max-width: 420px;
+    height: 260px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .destination-card { width: 260px; }
+
+  .company-logo img { width: 120px; }
+
+  .contactfooter, 
+  .aboutfooter, 
+  .otherservicesfooter { width: 45%; }
+}
+
+/*  desktop me i madh se 1440 */
+@media (min-width: 1440px) {
+
+  .discovermore {
+    padding: 80px 160px;
+    gap: 50px;
+  }
+
+  .discovermore1 {
+    font-size: 30px;
+  }
+
+  .discovermore1 h1 {
+    font-size: 40px;
+  }
+
+  .discovermore1 p {
+    font-size: 20px;
+    width: 80%;
+  }
+
+  .discover-img {
+    max-width: 520px;
+    height: 320px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .destination-card { width: 330px; }
 }
 
