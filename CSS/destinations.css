@@ -213,7 +213,7 @@ transition: 0.1s;
     gap: 15px;
     margin-top: 15px;
     background: #0099a8;
-    padding bottom: 15px;
+    padding-bottom: 15px;
   }
 
   .nav-links.show {
@@ -254,7 +254,7 @@ transition: 0.1s;
     border-radius: 12px;
     object-fit: cover;
   }
-}
+
 
   .destinations-container { 
     flex-direction: column; 
@@ -288,8 +288,8 @@ transition: 0.1s;
   }
 
   .popup-inner { width: 70%; } 
-}
 
+}
 /* Tablet (768–1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
 
