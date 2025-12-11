@@ -33,7 +33,18 @@ transition: 0.1s;
 .nav-links li a.active {
     color: #ffea00;
   }
-
+  .menu{
+     display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+  }
+ .menu span{
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: white;
+ }
 /* Carousel container */
 .slideshow-container {
  
@@ -425,20 +436,24 @@ border-radius: 10%;
 @media (max-width: 767px) {
 
 .navbar {
-flex-direction: column;
+ flex-direction: row;
+ justify-content: space-between;
 align-items: center;
 text-align: center;
-}
-
-.nav-links {
-flex-direction: column;
-gap: 10px;
-align-items: center;
+gap: 15px; 
 }
 .nav-links{
-  display: block;
+  display: none;
+  flex-direction: column;
     width: 100%;
-    text-align: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+.nav-links.show{
+  display: flex;   
+}
+.menu{
+  display: flex;
 }
  .mySlides img {
     height: 280px;
