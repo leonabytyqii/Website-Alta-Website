@@ -123,6 +123,12 @@ input {
   color: #1a73e8;
 }
 
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+}
 /*footeri*/
 .footer {
  
