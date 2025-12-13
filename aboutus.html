@@ -10,11 +10,16 @@
     <!--Navbari-->
     <nav class="navbar">
         <div class="logo">ALTA TRAVEL BLOG</div>
+        <div class="menu" id="menu">
+          <span></span>
+         <span></span>
+         <span></span>
+        </div>
         <ul class="nav-links">
             <li><a href="index.html" >Home</a></li>
             <li><a href="destinations.html">Destinations</a></li>
             <li><a href="aboutus.html" class="active">About Us</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="#" id="openContact">Contact Us</a></li>
             <li><a href="login.html">Log In</a></li>
         </ul>
     </nav>
@@ -204,7 +209,19 @@ we share everything you need for a better journey.
 <div class="footer-bottom">
       <p>&copy;2025 ALTA Travel Agency</p>
   </div>
-
+<!--contact us-->
+<div  id="popup">
+  <div class="popup-inner">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+  <input type="text" id="contactName" placeholder="Your Name">
+  <input type="text" id="contactEmail" placeholder="Your Email">
+  <textarea id="contactMsg" placeholder="Message"></textarea>
+  <button type="submit">Send</button>
+</form>
+    <span id="closePopup">Close</span>
+  </div>
+</div>
 
 </body>
 </html>

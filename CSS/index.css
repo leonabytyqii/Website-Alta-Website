@@ -96,22 +96,27 @@ transition: 0.1s;
 
 /*Container mbrenda caroselit*/
 .text {
-  padding:60px 30px;
-  position: absolute;
-  top: 10px; 
-  left: 10px; 
+   position: absolute;
+  top: 25%; 
+  left: 6%;
   color: #000; 
+   max-width: 520px;
   font-size: xx-large;
   font-weight: bold;
   letter-spacing: 3px;
  
 }
+ .text h1 {
+  font-size: 56px;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
 #p1{
   color: black;
-  font-size: 30px;
-  padding-top: 30px;
   font-weight: bolder;
- 
+  font-size: 22px;
+  margin-top: 18px;
 }
 
 
@@ -129,6 +134,7 @@ transition: 0.1s;
 }
 
 .destination-card{
+  position: relative; 
     display: flex;
     flex-direction: column;
     margin: 40px;
@@ -161,7 +167,7 @@ transition: 0.1s;
   }
 .text-card{
   position:absolute;
- padding-top: 120px;
+padding-top:120px;
  cursor:pointer;
  font-weight: bolder;
  color: white;
@@ -434,13 +440,31 @@ border-radius: 10%;
 
 /* telefon (0–767px) */
 @media (max-width: 767px) {
+.why-us {
+    padding: 25px 15px; 
+}
 
+.why-us h2 {
+    margin-bottom: 25px;
+}
+.why-us-content {
+    gap: 18px; 
+      margin: 0; 
+}
+.video-container {
+    padding-left: 0; 
+}
+
+.why-us-text {
+    flex: 1 1 auto; 
+    font-size: 14px;
+}
 .navbar {
- flex-direction: row;
- justify-content: space-between;
-align-items: center;
-text-align: center;
-gap: 15px; 
+   flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+      gap: 0;
 }
 .nav-links{
   display: none;
@@ -454,22 +478,37 @@ gap: 15px;
 }
 .menu{
   display: flex;
+    margin-left: 0;
 }
  .mySlides img {
     height: 280px;
     object-fit: cover;
  }
-.text {
+  .text{
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    max-width: 85%;
+
+  }
+.text h1{
+  font-size: 26px;
+    line-height: 1.25;
+  }
+
+.text-card {
+position:absolute;
 top: 8%;
 left: 50%;
 transform: translateX(-50%);
 text-align: center;
-max-width: 80%;
-letter-spacing: 1px;
+ width: 100%;
+padding-top: 20%;
 }
-.text h1{
-  font-size: 22px;             
-    line-height: 1.25;
+.text-card h3{
+   margin: 0;
+    font-size: 16px;
 }
 
 #p1 { font-size: 15px; 
@@ -488,6 +527,7 @@ flex-direction: column;
 align-items: center;
 text-align: center;
 gap: 25px;
+ padding: 30px 20px;
 }
 
 .contactfooter, 
@@ -495,9 +535,10 @@ gap: 25px;
 .otherservicesfooter {
 width: 100%;
 text-align: center;
+ margin-left: 0;
 }
-.logo1 {
-    justify-content: center;
+.logo1{
+justify-content: center;
 }
 
 .popup-inner { width: 70%;
@@ -510,6 +551,20 @@ text-align: center;
 /* Tablet (768–1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
 
+.navbar {
+    padding: 20px 30px;
+
+  }
+
+  .nav-links {
+    gap: 20px;  
+  }
+  .nav-links li a {
+    font-size: 15px;  
+    white-space: nowrap;
+  }
+
+
 
  .mySlides img {
     height: 280px;
@@ -517,16 +572,17 @@ text-align: center;
 
  }
  .text{
-  font-size: 22px; 
-  max-width: 400px;
-  top: 10%;
+    top: 15%;
+    left: 6%;
+    max-width: 420px;
  }
 .text h1{
-  font-size: 26px;
-    line-height: 1.25;
+  font-size: 40px;
+    line-height: 1.2;
 }
  #p1{
-   font-size: 17px;
+   font-size: 18px;
+    margin-top: 14px;
  }
 .destination-card { width: 260px; }
 
