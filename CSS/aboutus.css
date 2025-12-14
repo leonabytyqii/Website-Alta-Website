@@ -447,4 +447,231 @@ color: #3e3e3e;
   }
 }
 
+/*responsiviteti*/
+#popup.show{ display:flex; }
 
+/* TELEFON (0–767px) */
+@media (max-width: 767px){
+
+  .navbar{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .nav-links{
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  .nav-links.show{ display: flex; }
+  .menu{
+    display: flex;
+    margin-left: 0;
+  }
+
+  .container img{
+    height: 320px;
+    object-fit: cover;
+  }
+  .container h1{
+    top: 95px;
+    left: 14px;
+    padding: 0;
+    font-size: 28px;
+    line-height: 1.1;
+    max-width: 92%;
+  }
+  .container p{
+    position: absolute;
+    top: 205px;
+    left: 14px;
+    bottom: auto;
+    font-size: 14px;
+    max-width: 92%;
+  }
+
+  .who-inner{
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px;
+    margin: 16px 14px 0;
+    gap: 18px;
+  }
+  .who-photo{
+    margin-left: 0;
+    width: 220px;
+    height: 220px;
+    align-self: center;
+    margin-top: 18px;
+  }
+  .whop{
+    font-size: 16px;
+    padding-top: 14px;
+  }
+
+  .mission{
+    padding: 36px 0;
+  }
+  .mission h3{
+    font-size: 26px;
+    margin-bottom: 24px;
+  }
+
+
+  .mission-cards,
+  .offer-cards,
+  .team-cards,
+  .why-cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 0 14px;
+    justify-content: center;
+  }
+
+  .mission-card,
+  .offer-card,
+  .team-card,
+  .why-card{
+    width: calc(50% - 6px);
+    margin: 0 auto;
+  }
+
+  .offer-section,
+  .team-section,
+  .why-section{
+    padding: 36px 16px;
+  }
+
+  .footer{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+    padding: 30px 20px;
+  }
+  .contactfooter,
+  .aboutfooter,
+  .otherservicesfooter{
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+  }
+  .logo1{
+    justify-content: center;
+  }
+
+  .popup-inner{ width: 70%; }
+}
+
+@media (max-width: 420px){
+  .mission-card,
+  .offer-card,
+  .team-card,
+  .why-card{
+    width: 100%;
+  }
+}
+/*per tablet*/
+
+@media (min-width: 768px) and (max-width: 1023px){
+  .navbar{ padding: 20px 30px;
+   }
+  .nav-links{ gap: 20px;
+   }
+  .nav-links li a{ font-size: 15px; 
+    white-space: nowrap; }
+
+  .container img{
+    height: 420px;
+    object-fit: cover;
+  }
+  .container h1{
+    top: 140px;
+    left: 30px;
+    padding: 0;
+    font-size: 42px;
+    line-height: 1.1;
+    max-width: 680px;
+  }
+  .container p{
+    bottom: auto;
+    top: 285px;
+    left: 30px;
+    font-size: 18px;
+    max-width: 680px;
+  }
+
+  .who-inner{
+    padding: 28px;
+    margin: 18px 24px 0;
+    gap: 20px;
+  }
+  .who-photo{
+    width: 250px;
+    height: 250px;
+    margin-left: 0;
+  }
+  .whop{ font-size: 18px; padding-top: 18px; }
+
+  .mission{ padding: 44px 0; }
+  .mission-cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 0 24px;
+  }
+  .mission-card{ width: 48%; }
+
+  .offer-section{ padding: 44px 24px; }
+  .offer-cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .offer-card{ width: 48%; 
+  }
+
+    .mission-cards,
+  .offer-cards,
+  .team-cards,
+  .why-cards{
+    justify-content: center;
+  }
+
+  .team-section{ padding: 44px 24px; }
+  .team-cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .team-card{ width: 48%; }
+
+  .why-section{ padding: 44px 24px; }
+  .why-cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .why-card{ width: 48%; }
+
+  .contactfooter,
+  .aboutfooter,
+  .otherservicesfooter{ width: 45%; }
+}
+
+/*per desktop*/
+
+@media (min-width: 1440px){
+
+  .container img{ height: 700px; }
+  .container h1{ font-size: 64px; }
+  .container p{ font-size: 26px; max-width: 900px; }
+
+  .mission-card{ min-height: 210px; }
+}
