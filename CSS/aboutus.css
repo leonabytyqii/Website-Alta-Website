@@ -48,13 +48,14 @@ transition: 0.1s;
 /*imazh*/
 .container{
     max-width: 100%;
+    position: relative;
    
 }
 
 .container img{
     width: 100%;
     padding: 0px;
-    height: 600px;
+    height: 700px;
     object-fit: cover;
 }
 .container h1 {
@@ -65,11 +66,12 @@ transition: 0.1s;
   color: #ffffff; 
   font-size: 60px;
   font-weight: bold;
+   margin-bottom: 20px;
 
 }
 .container p{
     position:absolute;
-    bottom: 55%;
+    bottom: 45%;
     left: 50px;
     font-style: italic;
     font-size: 25px;
@@ -226,6 +228,7 @@ margin-top: 30px;
 }
 
 .team-card {
+overflow: hidden;
 background: #d3d3d357;
 padding: 20px;
 border-radius: 12px;
@@ -240,6 +243,8 @@ height: 140px;
 border-radius: 50%;
 object-fit: cover;
 margin-bottom: 15px;
+ display: block;
+  margin: 0 auto 12px;
 }
 
 .team-card h3 {
@@ -302,7 +307,7 @@ color: #3e3e3e;
 
 .footer h2 {
   margin-bottom: 15px;
-  font-size: 26pxpx;
+  font-size: 26px;
   color: white;
 } 
 .footer a {
@@ -447,32 +452,57 @@ color: #3e3e3e;
   }
 }
 
-/*responsiviteti*/
-#popup.show{ display:flex; }
+
 
 /* TELEFON (0–767px) */
 @media (max-width: 767px){
-
-  .navbar{
-    flex-direction: row;
+.navbar {
+   position: relative; 
+   flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 16px;
-    gap: 0;
-    flex-wrap: wrap;
+    padding: 12px 14px;
+      gap: 0;
+}
+.nav-links{
+  display: none;
+  flex-direction: column;
+   position: absolute;
+    top: 100%;
+    left: 16px;
+    right: 16px;
+    background: rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 10px;
+    gap: 8px;
+      z-index:999;
+
+}
+.nav-links.show{
+  display: flex;   
+}
+ .nav-links li a{
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 17px;
   }
-  .nav-links{
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    gap: 15px;
-    margin-top: 15px;
-  }
-  .nav-links.show{ display: flex; }
-  .menu{
-    display: flex;
+.menu{
+  display: flex;
     margin-left: 0;
+}
+.menu span{ transition: 0.2s; }
+
+  .menu.open span:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
   }
+  .menu.open span:nth-child(2){
+    opacity: 0;
+  }
+  .menu.open span:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+  }
+ 
 
   .container img{
     height: 320px;
@@ -518,8 +548,8 @@ color: #3e3e3e;
     padding: 36px 0;
   }
   .mission h3{
-    font-size: 26px;
-    margin-bottom: 24px;
+    font-size: 22px;
+    margin-bottom: 20px;
   }
 
 
@@ -527,19 +557,38 @@ color: #3e3e3e;
   .offer-cards,
   .team-cards,
   .why-cards{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding: 0 14px;
+  display: flex;
+  flex-direction: column;
+    gap: 16px;
+    padding: 0 16px;
     justify-content: center;
+    text-align: center;
   }
 
   .mission-card,
   .offer-card,
   .team-card,
   .why-card{
-    width: calc(50% - 6px);
-    margin: 0 auto;
+   width: 100%;
+    padding: 18px 16px;
+    border-radius: 16px;
+    min-height: auto;
+  
+  }
+
+  .mission-card .icon {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  .mission-card h4 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .mission-card p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-top: 6px;
   }
 
   .offer-section,
@@ -547,6 +596,7 @@ color: #3e3e3e;
   .why-section{
     padding: 36px 16px;
   }
+
 
   .footer{
     flex-direction: column;
@@ -568,15 +618,29 @@ color: #3e3e3e;
 
   .popup-inner{ width: 70%; }
 }
-
-@media (max-width: 420px){
-  .mission-card,
-  .offer-card,
-  .team-card,
-  .why-card{
-    width: 100%;
-  }
+.logo{
+  font-size: 16px; 
+ line-height: 1.1;
+    max-width: 70%;
+    word-break: break-word; 
 }
+.footer h2 {
+    font-size: 20px;  
+    margin-bottom: 10px;
+
+}
+.footer a {
+    font-size: 15px;
+    margin: 6px 0;
+  }
+
+  .logo1 img {
+    width: 24px; 
+  }
+    .footer-bottom,
+  .footer-bottom p {
+    font-size: 12px;
+  }
 /*per tablet*/
 
 @media (min-width: 768px) and (max-width: 1023px){
@@ -650,7 +714,9 @@ color: #3e3e3e;
     flex-wrap: wrap;
     gap: 16px;
   }
-  .team-card{ width: 48%; }
+  .team-card{ 
+    width: 48%; 
+  }
 
   .why-section{ padding: 44px 24px; }
   .why-cards{
@@ -665,13 +731,26 @@ color: #3e3e3e;
   .otherservicesfooter{ width: 45%; }
 }
 
+
 /*per desktop*/
 
 @media (min-width: 1440px){
 
-  .container img{ height: 700px; }
-  .container h1{ font-size: 64px; }
-  .container p{ font-size: 26px; max-width: 900px; }
+   .container h1{
+    left: 8%;
+    top: 20%;
+    padding: 0;
+    font-size: 72px;
+    line-height: 1.05;
+    max-width: 720px;
+  }
 
-  .mission-card{ min-height: 210px; }
+  .container p{
+    left: 8%;
+    bottom: 40%;
+    padding-top: 50%;
+    font-size: 26px;
+    line-height: 1.4;
+    max-width: 640px;
+  }
 }

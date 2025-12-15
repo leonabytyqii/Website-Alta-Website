@@ -304,47 +304,102 @@ input {
     align-items: center;
     padding: 14px 16px;
       gap: 0;
-       position: static;
+    position: relative; 
 }
 .nav-links{
   display: none;
   flex-direction: column;
-    width: 100%;
-    gap: 15px;
-    margin-top: 15px;
+  position: absolute;
+   top: 100%;
+    left: 16px;
+    right: 16px;
+    background: rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 10px;
+    gap: 8px;
+      z-index:999;
+}
+.logo{
+  font-size: 16px; 
+ line-height: 1.1;
+    max-width: 70%;
+    word-break: break-word; 
 }
 .nav-links.show{
   display: flex;   
 }
+.nav-links li a{
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 17px;
+  }
 .menu{
   display: flex;
     margin-left: 0;
 }
+.menu span{ transition: 0.2s; }
 
-.login-container{ 
-  max-width: 380px; 
-  margin: 30px auto 60px; 
-   padding-top: 20px; }
-  .title{ 
-    font-size: 26px; 
-    margin: 20px 0 25px; 
+  .menu.open span:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
   }
-  .login-box{ 
-    padding: 22px; 
+  .menu.open span:nth-child(2){
+    opacity: 0;
   }
-  input{ 
-    padding: 11px;
-   }
+  .menu.open span:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+
+.login-container{
+    max-width: 300px;
+    margin: 10px auto 30px auto;
+    padding-top: 20px;
+  }
+    .title{
+    font-size: 20px;
+    margin: 8px 0 14px;
+  }
+
+  .login-box{
+    padding: 16px;
+   border-radius: 12px;
+    margin-bottom: 12px;
+  }
+    .login-box h2{
+    font-size: 18px;
+    margin: 20px 0;
+
+  }
+  label{
+    font-size: 13px;
+  
+  }
+
+  .input{ 
+    padding: 9px;
+   font-size: 13px; }
   .btn{ 
-    padding: 12px;
-   }
-  .footer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 25px;
-    padding: 30px 20px;
+    padding: 10px;
+   font-size: 14px;
+   margin-bottom: 18px;
   }
+.forgot{
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  .signup{
+    font-size: 12px;
+    margin-top: 8px;
+  }
+
+  .footer {
+flex-direction: column;
+align-items: center;
+text-align: center;
+gap: 25px;
+ padding: 30px 20px;
+}
   
   .contactfooter, 
   .aboutfooter,
@@ -357,6 +412,23 @@ input {
   justify-content: center;
   }
 }
+.footer h2 {
+    font-size: 20px;  
+    margin-bottom: 10px;
+
+}
+.footer a {
+    font-size: 15px;
+    margin: 6px 0;
+  }
+
+  .logo1 img {
+    width: 24px; 
+  }
+    .footer-bottom,
+  .footer-bottom p {
+    font-size: 12px;
+  }
 
 /*Tablet*/
 @media (min-width: 768px) and (max-width: 1023px){
@@ -405,6 +477,18 @@ input {
   .login-box{ 
     padding: 40px;
    }
+    .footer h2 {
+    font-size: 28px;
+  }
+
+  .footer a {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .footer-bottom {
+    font-size: 15px;
+  }
 }
 
 .error{

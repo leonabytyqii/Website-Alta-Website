@@ -94,10 +94,12 @@ const btn = document.querySelector('.btn');
 
 });
 
-    //menu
-const menu=document.getElementById("menu");
+//menu
+const menu = document.getElementById("menu");
 const navLinks = document.getElementById("navLinks");
 
 menu.addEventListener("click", () => {
   navLinks.classList.toggle("show");
+  menu.classList.toggle("open");
 });
+

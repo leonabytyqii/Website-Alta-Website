@@ -445,7 +445,10 @@ border-radius: 10%;
 }
 
 .why-us h2 {
-    margin-bottom: 25px;
+    margin-bottom: 90px;
+    font-size: 22px; 
+    padding: 0 10px;
+     line-height: 1.2; 
 }
 .why-us-content {
     gap: 18px; 
@@ -453,6 +456,7 @@ border-radius: 10%;
 }
 .video-container {
     padding-left: 0; 
+   
 }
 
 .why-us-text {
@@ -460,29 +464,71 @@ border-radius: 10%;
     font-size: 14px;
 }
 .navbar {
+   position: relative; 
    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 16px;
+    padding: 12px 14px;
       gap: 0;
+}
+.logo{
+  font-size: 16px; 
+ line-height: 1.1;
+    max-width: 70%;
+    word-break: break-word; 
 }
 .nav-links{
   display: none;
   flex-direction: column;
-    width: 100%;
-    gap: 15px;
-    margin-top: 15px;
+   position: absolute;
+    top: 100%;
+    left: 16px;
+    right: 16px;
+    background: rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 10px;
+    gap: 8px;
+      z-index:999;
+
 }
 .nav-links.show{
   display: flex;   
 }
+ .nav-links li a{
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 17px;
+  }
 .menu{
   display: flex;
-    margin-left: 0;
+    margin-left: 16px;
+    flex-shrink: 0;
 }
+.menu span{ 
+  transition: 0.2s; 
+     width: 24px;
+    height: 3px;
+}
+
+  .menu.open span:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu.open span:nth-child(2){
+    opacity: 0;
+  }
+  .menu.open span:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+  }
  .mySlides img {
     height: 280px;
     object-fit: cover;
+ }
+ .top-destinations h2 {
+  font-size: 20px;  
+    line-height: 1.2;
+    margin-top: 20px;
+    letter-spacing: 0.5px;
  }
   .text{
     top: 8%;
@@ -526,7 +572,10 @@ padding: 15px;
   max-width: 350px;
   margin: 0;
 }
+.destinationwrap{
+  margin-top: 80px;
 
+}
 
 .why-us-content { flex-direction: column; }
 .why-us-text { font-size: 14px; }
@@ -553,7 +602,23 @@ justify-content: center;
 .popup-inner { width: 70%;
 }
 }
+.footer h2 {
+    font-size: 20px;  
+    margin-bottom: 10px;
 
+}
+.footer a {
+    font-size: 15px;
+    margin: 6px 0;
+  }
+
+  .logo1 img {
+    width: 24px; 
+  }
+    .footer-bottom,
+  .footer-bottom p {
+    font-size: 12px;
+  }
 
 
 

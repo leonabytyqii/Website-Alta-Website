@@ -80,9 +80,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //menu
-const menu=document.getElementById("menu");
-const navLinks = document.getElementById("navLinks");
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.getElementById("menu");
+  const navLinks = document.getElementById("navLinks");
+  if (!menu || !navLinks) return;
 
-menu.addEventListener("click", () => {
-  navLinks.classList.toggle("show");
+  menu.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+    menu.classList.toggle("open");
+  });
 });
+

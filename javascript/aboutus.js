@@ -1,56 +1,68 @@
-const menu = document.getElementById("menu");
-const navLinks = document.querySelector(".nav-links");
+//contactus
+    document.addEventListener("DOMContentLoaded", () => {
 
-if (menu && navLinks) {
-  menu.addEventListener("click", () => {
-    navLinks.classList.toggle("show");
-  });
+  const openBtn = document.getElementById("openContact");
+  const popup = document.getElementById("popup");
+  const closeBtn = document.getElementById("closePopup");
 
-  // kur klikohen linkat në mobile, mbylle menunë
-  navLinks.querySelectorAll("a").forEach(a => {
-    a.addEventListener("click", () => navLinks.classList.remove("show"));
-  });
-}
-
-const popup = document.getElementById("popup");
-const openContact = document.getElementById("openContact");
-const closePopup = document.getElementById("closePopup");
-const contactForm = document.getElementById("contactForm");
-
-function openPop() {
-  if (!popup) return;
-  popup.classList.add("show");
-}
-
-function closePop() {
-  if (!popup) return;
-  popup.classList.remove("show");
-}
-
-if (openContact) {
-  openContact.addEventListener("click", (e) => {
+  openBtn.addEventListener("click", function(e) {
     e.preventDefault();
-    openPop();
+    popup.style.display = "flex";
   });
-}
 
-if (closePopup) closePopup.addEventListener("click", closePop);
-
-if (popup) {
-  popup.addEventListener("click", (e) => {
-    if (e.target === popup) closePop();
+  closeBtn.addEventListener("click", function() {
+    popup.style.display = "none";
   });
-}
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closePop();
+  // VALIDIMI I FORMËS
+  const form = document.getElementById("contactForm");
+  const nameField = document.getElementById("contactName");
+  const emailField = document.getElementById("contactEmail");
+  const msgField = document.getElementById("contactMsg");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    if (nameField.value.trim() === "") {
+      alert("Shkruaj emrin.");
+      nameField.focus();
+      return;
+    }
+
+    if (emailField.value.trim() === "") {
+      alert("Shkruaj emailin.");
+      emailField.focus();
+      return;
+    }
+
+    if (!emailField.value.includes("@")) {
+      alert("Email jo valid.");
+      emailField.focus();
+      return;
+    }
+
+    if (msgField.value.trim() === "") {
+      alert("Shkruaj mesazhin.");
+      msgField.focus();
+      return;
+    }
+
+    alert("Mesazhi u dërgua me sukses!");
+    popup.style.display = "none";
+    form.reset();
+  });
+
 });
 
-if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    alert("Message sent!");
-    closePop();
-    contactForm.reset();
+
+//menu
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.getElementById("menu");
+  const navLinks = document.getElementById("navLinks");
+  if (!menu || !navLinks) return;
+
+  menu.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+    menu.classList.toggle("open");
   });
-}
+});
