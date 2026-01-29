@@ -70,7 +70,7 @@ btn.addEventListener("click", function (event) {
   }
 
 if (valid) {
-    alert("Account created successfully!");
+      btn.closest("form").submit();
 }
 });
 //contactus
