@@ -1,28 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/aboutus.css">
-    <title>About Us</title>
-</head>
-<body>
+<?php
+session_start();
+require __DIR__ . "/includes/db.php";
+
+class AboutPage {
+    private $conn;
+
+    public function __construct($db) {
+        $this->conn = $db;
+    }
+
+    public function isLoggedIn() {
+        return isset($_SESSION["user_id"]);
+    }
+
+    public function isAdmin() {
+        return ($_SESSION["role"] ?? "") === "admin";
+    }
+
+    public function getUsername() {
+        return $_SESSION["username"] ?? "";
+    }
+
+  
+}
+
+$page = new AboutPage(null);
+
+ 
+include __DIR__ . "/includes/header.php";
+?>
+<link rel="stylesheet" href="CSS/aboutus.css">
+
+
+
     <!--Navbari-->
-    <nav class="navbar">
-        <div class="logo">ALTA TRAVEL BLOG</div>
-        <div class="menu" id="menu">
-          <span></span>
-         <span></span>
-         <span></span>
-        </div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" >Home</a></li>
-            <li><a href="destinations.html">Destinations</a></li>
-            <li><a href="aboutus.html" class="active">About Us</a></li>
-            <li><a href="#" id="openContact">Contact Us</a></li>
-            <li><a href="login.html">Log In</a></li>
-        </ul>
-    </nav>
+  <nav class="navbar">
+    <div class="logo">ALTA TRAVEL BLOG</div>
+    <div class="menu" id="menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.php" class="active">Home</a></li>
+        <li><a href="destinations.php">Destinations</a></li>
+        <li><a href="aboutus.php">About Us</a></li>
+        <li><a href="contact.php">Contact Us</a></li>
+
+        <?php if ($page->isLoggedIn()): ?>
+            <?php if ($page->isAdmin()): ?>
+                <li><a href="dashboard.php">Dashboard</a></li>
+            <?php endif; ?>
+            <li>
+                <a href="logout.php">
+                    Logout (<?= htmlspecialchars($page->getUsername()) ?>)
+                </a>
+            </li>
+        <?php else: ?>
+            <li><a href="login.php">Login</a></li>
+            <li><a href="signup.php">Sign Up</a></li>
+        <?php endif; ?>
+    </ul>
+</nav>
  
    <!--imazh-->
    <div class="container">
@@ -34,6 +73,7 @@
   <!--Who are we-->
  <section class="who">
   <div class="who-inner">
+   
     <div class="who-content">
       <h2>Who We Are</h2>
       <p class="whop">
@@ -169,59 +209,8 @@ we share everything you need for a better journey.
 </div>
 </div>
 </section>
-<!--footer-->
+<script src="javascript/aboutus.js"></script>
+    <?php
+include __DIR__ . "/includes/footer.php";
+?>
 
-  <footer class="footer">
-    <div class="contactfooter">
-      <h2>Contact Us</h2>
-       <a href="Costumer Support">Costumer Support</a>
-       <a href="Service Guarantee">Service Guarantee</a>
-      <a href="More Service Info">More Service Info</a>
-
-      <div class="logo1">
-        <a href="#"><img src="./images/instagram.svg" alt=""></a>
-        <a href="#"><img src="./images/facebook.webp" alt=""></a>
-        <a href="#"><img src="./images/twitter.png" alt=""></a>
-      </div>
-      </div>
-
-      <div class="aboutfooter">
-   <h2>About</h2>
-  <a href="#">Why Choose Us</a>
-  <a href="#">Our Team</a>
-  <a href="#">Customer Reviews</a>
-  <a href="#">Careers</a>
-  <a href="#">FAQ</a>
-  </div>
-
-  <div class="otherservicesfooter">
-    <h2>Other Services</h2>
-  <a href="#">Flight & Hotel Packages</a>
-  <a href="#">City Tours Excursions</a>
-  <a href="#">Airport Transfers</a>
-  <a href="#">Car Rental</a>
-  <a href="#">Travel Insurance</a>
-  <a href="#">Visa Assistance</a>
-  <a href="#">Corporate Travel</a>
-  </div>
-    
-</footer>
-<div class="footer-bottom">
-      <p>&copy;2025 ALTA Travel Agency</p>
-  </div>
-<!--contact us-->
-<div  id="popup">
-  <div class="popup-inner">
-    <h2>Contact Us</h2>
-    <form id="contactForm">
-  <input type="text" id="contactName" placeholder="Your Name">
-  <input type="text" id="contactEmail" placeholder="Your Email">
-  <textarea id="contactMsg" placeholder="Message"></textarea>
-  <button type="submit">Send</button>
-</form>
-    <span id="closePopup">Close</span>
-  </div>
-</div>
-<script src="./javascript/aboutus.js"></script>
-</body>
-</html>
