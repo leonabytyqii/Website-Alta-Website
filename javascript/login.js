@@ -41,11 +41,16 @@ const btn = document.querySelector('.btn');
 
 
 //menu
-const menu = document.getElementById("menu");
-const navLinks = document.getElementById("navLinks");
+document.addEventListener("DOMContentLoaded", function() {
+  const menu = document.getElementById("menu");
+  const navLinks = document.getElementById("navLinks");
 
-menu.addEventListener("click", () => {
-  navLinks.classList.toggle("show");
-  menu.classList.toggle("open");
+  if (menu && navLinks) {
+    menu.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+      menu.classList.toggle("open");
+    });
+  }
 });
+
 

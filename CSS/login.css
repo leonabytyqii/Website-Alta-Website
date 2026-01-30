@@ -11,6 +11,7 @@ position: absolute;
   top: 0;
   left: 0;
   z-index: 1000;
+  flex-wrap: nowrap;
 }
 
 .logo {
@@ -387,11 +388,31 @@ justify-content: center;
 
 .footer h2{ font-size: 22px; }
   .footer a{ font-size: 16px; }
+   .navbar {
+    padding: 20px 20px;
+  }
 }
 /*laptop*/
 @media (min-width: 1024px){
-  .navbar{ padding: 20px 60px; }
+  .navbar {
+  padding: 15px 15px;
+  align-items: center;
+}
 
+.logo {
+  font-size: 16px;
+  white-space: nowrap;
+  margin-right: 15px;
+}
+
+.nav-links {
+  gap: 12px;
+}
+
+.nav-links li a {
+  font-size: 13px;
+  white-space: nowrap;
+}
   .login-container{
     max-width: 420px;
     margin: 140px auto 150px auto;

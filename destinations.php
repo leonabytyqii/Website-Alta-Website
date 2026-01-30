@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$currentPage = 'destinations.php';
 
 class DestinationsPage {
     private $conn;
@@ -30,37 +30,9 @@ $page = new DestinationsPage(null);
 include __DIR__ . "/includes/header.php";
 ?>
 
-<link rel="stylesheet" href="CSS/destinations.css">
 
-    <!--navbari-->
-<nav class="navbar">
-    <div class="logo">ALTA TRAVEL BLOG</div>
-    <div class="menu" id="menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <ul class="nav-links" id="navLinks">
-        <li><a href="index.php" class="active">Home</a></li>
-        <li><a href="destinations.php">Destinations</a></li>
-        <li><a href="aboutus.php">About Us</a></li>
-        <li><a href="contact.php">Contact Us</a></li>
 
-        <?php if ($page->isLoggedIn()): ?>
-            <?php if ($page->isAdmin()): ?>
-                <li><a href="dashboard.php">Dashboard</a></li>
-            <?php endif; ?>
-            <li>
-                <a href="logout.php">
-                    Logout (<?= htmlspecialchars($page->getUsername()) ?>)
-                </a>
-            </li>
-        <?php else: ?>
-            <li><a href="login.php">Login</a></li>
-            <li><a href="signup.php">Sign Up</a></li>
-        <?php endif; ?>
-    </ul>
-</nav>
+
 <!--discovermore-->
  <section class="discovermore">
         <div class="discovermore1">

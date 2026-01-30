@@ -14,78 +14,53 @@ class LoginHandler {
 
     public function handleLogin() {
 
-        if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-            return;
-        }
+    if ($_SERVER["REQUEST_METHOD"] !== "POST") return;
 
-        $username = trim($_POST["username"] ?? "");
-        $password = $_POST["password"] ?? "";
+    $username = trim($_POST["username"]);
+    $password = $_POST["password"];
 
-        if ($username === "" || $password === "") {
-            $this->error = "Please fill in all fields.";
-            return;
-        }
+    $stmt = $this->conn->prepare(
+        "SELECT id, username, password, role 
+         FROM users 
+         WHERE TRIM(LOWER(username)) = TRIM(LOWER(?))"
+    );
 
-        $stmt = $this->conn->prepare(
-            "SELECT id, username, password, role FROM users WHERE username = ?"
-        );
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-        if (!$stmt) {
-            $this->error = "Database error.";
-            return;
-        }
-
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows !== 1) {
-            $this->error = "Wrong username or password.";
-            return;
-        }
-
-        $user = $result->fetch_assoc();
-
-        if (!password_verify($password, $user["password"])) {
-            $this->error = "Wrong username or password.";
-            return;
-        }
-
-        
-        $_SESSION["user_id"] = $user["id"];
-        $_SESSION["username"] = $user["username"];
-        $_SESSION["role"] = $user["role"];
-
-        header("Location: index.php");
-        exit;
+    if ($result->num_rows === 0) {
+        $this->error = "User not found.";
+        return;
     }
+
+    $user = $result->fetch_assoc();
+
+    if (!password_verify($password, $user["password"])) {
+        $this->error = "Password incorrect.";
+        return;
+    }
+
+    $_SESSION["user_id"] = $user["id"];
+    $_SESSION["username"] = $user["username"];
+    $_SESSION["role"] = $user["role"];
+
+    header("Location: index.php");
+    exit;
+}
+
 }
 
 
 $login = new LoginHandler($conn);
 $login->handleLogin();
-
+$currentPage = 'login.php';
 include __DIR__ . "/includes/header.php";
 ?>
 
-<link rel="stylesheet" href="/website-alta-website-1/CSS/signup.css">
+<link rel="stylesheet" href="/website-alta-website-1/CSS/login.css">
 
-<!--navbari-->
-<nav class="navbar">
-    <div class="logo">ALTA TRAVEL BLOG</div>
-    <div class="menu" id="menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <ul class="nav-links" id="navLinks">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="destinations.php">Destinations</a></li>
-        <li><a href="aboutus.php">About Us</a></li>
-        <li><a href="#" id="openContact">Contact Us</a></li>
-        <li><a href="login.php" class="active">Log In</a></li>
-    </ul>
-</nav>
+
 
 <!--login form-->
 <div class="login-container">
@@ -118,5 +93,5 @@ include __DIR__ . "/includes/header.php";
         </form>
     </div>
 </div>
-
+<script src="/website-alta-website-1/javascript/login.js"></script>
 <?php include __DIR__ . "/includes/footer.php"; ?>

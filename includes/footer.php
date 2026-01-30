@@ -39,7 +39,6 @@
       <p>&copy;2025 ALTA Travel Agency</p>
   </div>
 
-<script src="/website-alta-website-1/javascript/index.js"></script>
 
 </body>
 </html>

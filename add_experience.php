@@ -2,102 +2,93 @@
 session_start();
 require __DIR__ . "/includes/db.php";
 
-class ExperienceHandler {
-    private $conn;
-
-    public function __construct($dbConnection) {
-        $this->conn = $dbConnection;
-    }
-
-    public function checkLogin() {
-        if (!isset($_SESSION["user_id"])) {
-            header("Location: login.php");
-            exit;
-        }
-    }
-
-    public function addExperience($title, $description, $imagePath, $userId) {
-        $stmt = $this->conn->prepare(
-            "INSERT INTO experiences (title, description, image, user_id) VALUES (?, ?, ?, ?)"
-        );
-        $stmt->bind_param("sssi", $title, $description, $imagePath, $userId);
-        $stmt->execute();
-        $stmt->close();
-        return true;
-    }
+if (!isset($_SESSION["user_id"])) {
+  header("Location: login.php");
+  exit;
 }
-
-$handler = new ExperienceHandler($conn);
-$handler->checkLogin();
 
 $error = "";
-$success = "";
-
+// Postimi i nje experience 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $title = trim($_POST["title"]);
-    $description = trim($_POST["description"]);
-    $userId = $_SESSION["user_id"];
+  $title = trim($_POST["title"] ?? "");
+  $description = trim($_POST["description"] ?? "");
+  $userId = (int)$_SESSION["user_id"];
 
-    if ($title === "" || $description === "") {
-        $error = "All fields are required.";
-    } else {
-        $imagePath = null;
+  if ($title === "" || $description === "") {
+    $error = "All fields are required.";
+  } else {
+    $imagePath = null;
 
-        if (!empty($_FILES["image"]["name"])) {
+    if (!empty($_FILES["image"]["name"])) {
+      $allowed = ["jpg","jpeg","png","webp"];
+      $ext = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
 
-            $allowedTypes = ["jpg","jpeg","png","webp"];
-            $fileExt = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+      if (!in_array($ext, $allowed)) {
+        $error = "Only JPG, JPEG, PNG, WEBP images allowed.";
+      } else {
+        $folderFs = __DIR__ . "/uploads/";
 
-            if (!in_array($fileExt, $allowedTypes)) {
-                $error = "Only JPG, PNG, WEBP images allowed.";
-            } else {
-                $folder = "uploads/";
-
-                if (!is_dir($folder)) {
-                    mkdir($folder, 0777, true);
-                }
-
-                $imageName = time() . "_" . basename($_FILES["image"]["name"]);
-                $imagePath = $folder . $imageName;
-
-                move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath);
-            }
+        if (!is_dir($folderFs)) {
+          mkdir($folderFs, 0777, true);
         }
 
-        if ($error === "") {
-            if ($handler->addExperience($title, $description, $imagePath, $userId)) {
-                $success = "Experience added successfully!";
-            } else {
-                $error = "Database error.";
-            }
+        $safeName = preg_replace("/[^a-zA-Z0-9_\-\.]/", "_", basename($_FILES["image"]["name"]));
+        $newName = time() . "_" . $safeName;
+
+        $targetFsPath = $folderFs . $newName;
+        $imagePath = "uploads/" . $newName;
+
+        if (!move_uploaded_file($_FILES["image"]["tmp_name"], $targetFsPath)) {
+          $error = "Upload failed. Check folder permissions.";
         }
+      }
     }
+
+    if ($error === "") {
+      $stmt = $conn->prepare("INSERT INTO experiences (title, description, image, user_id) VALUES (?, ?, ?, ?)");
+      $stmt->bind_param("sssi", $title, $description, $imagePath, $userId);
+
+      if ($stmt->execute()) {
+        header("Location: experiences.php");
+        exit;
+      } else {
+        $error = "Database error: " . $conn->error;
+      }
+
+      $stmt->close();
+    }
+  }
 }
 
+$currentPage = 'add_experience.php';
 include __DIR__ . "/includes/header.php";
 ?>
 
-<h2>Add Your Experience</h2>
+    <link rel="stylesheet" href="CSS/experiences.css">
+<div class="experiences-container">
+  <h1>Add Your Experience ✍️</h1>
 
-<?php if ($error): ?>
-<p style="color:red"><?= $error ?></p>
-<?php endif; ?>
+  <?php if ($error): ?>
+    <p class="no-experiences" style="color:red;"><?= $error ?></p>
+  <?php endif; ?>
 
-<?php if ($success): ?>
-<p style="color:green"><?= $success ?></p>
-<?php endif; ?>
+  <form method="POST" enctype="multipart/form-data" class="exp-form">
 
-<form method="POST" enctype="multipart/form-data">
-<label>Title</label>
-<input type="text" name="title" required>
+    <label>Title</label>
+    <input type="text" name="title" placeholder="Enter title..." required>
 
-<label>Description</label>
-<textarea name="description" required></textarea>
+    <label>Description</label>
+    <textarea name="description" placeholder="Share your experience..." required></textarea>
 
-<label>Photo</label>
-<input type="file" name="image">
+    <label>Photo (optional)</label>
+    <input type="file" name="image" accept=".jpg,.jpeg,.png,.webp">
 
-<button type="submit">Submit</button>
-</form>
+    <div class="exp-buttons">
+      <button type="submit" class="btn-exp">Post Experience</button>
+      <a href="experiences.php" class="btn-exp secondary">Cancel</a>
+    </div>
+
+  </form>
+</div>
 
 <?php include __DIR__ . "/includes/footer.php"; ?>

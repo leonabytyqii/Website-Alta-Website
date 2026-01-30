@@ -2,41 +2,33 @@
 session_start();
 require __DIR__ . "/includes/db.php";
 
-class ExperienceManager {
-    private $conn;
-
-    public function __construct($dbConnection) {
-        $this->conn = $dbConnection;
-    }
-
-    public function checkAdmin() {
-        if (!isset($_SESSION["user_id"]) || $_SESSION["role"] !== "admin") {
-            header("Location: index.php");
-            exit;
-        }
-    }
-
-    public function deleteExperience($id) {
-        $stmt = $this->conn->prepare("DELETE FROM experiences WHERE id = ?");
-        if ($stmt) {
-            $stmt->bind_param("i", $id);
-            $stmt->execute();
-            $stmt->close();
-        }
-    }
+if (!isset($_SESSION["user_id"])) {
+  header("Location: login.php");
+  exit;
 }
 
-$manager = new ExperienceManager($conn);
-$manager->checkAdmin();
+$id = (int)($_GET["id"] ?? 0);
+$userId = (int)$_SESSION["user_id"];
 
-if (!isset($_GET["id"]) || !is_numeric($_GET["id"])) {
-    header("Location: dashboard.php");
-    exit;
+// fshi edhe foton nga serveri
+$stmt = $conn->prepare("SELECT image FROM experiences WHERE id = ? AND user_id = ?");
+$stmt->bind_param("ii", $id, $userId);
+$stmt->execute();
+$res = $stmt->get_result();
+$row = $res->fetch_assoc();
+$stmt->close();
+
+$stmt = $conn->prepare("DELETE FROM experiences WHERE id = ? AND user_id = ?");
+$stmt->bind_param("ii", $id, $userId);
+$stmt->execute();
+$stmt->close();
+
+if (!empty($row["image"])) {
+  $fsPath = __DIR__ . "/" . $row["image"];
+  if (file_exists($fsPath)) {
+    @unlink($fsPath);
+  }
 }
 
-$id = (int) $_GET["id"];
-$manager->deleteExperience($id);
-
-header("Location: dashboard.php");
+header("Location: experiences.php?mine=1");
 exit;
-?>

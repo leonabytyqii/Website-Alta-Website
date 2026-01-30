@@ -1,75 +1,74 @@
 <?php
 session_start();
+$currentPage = 'experiences.php';
 require __DIR__ . "/includes/db.php";
 
-$query = "
-    SELECT experiences.*, users.username
-    FROM experiences
-    JOIN users ON experiences.user_id = users.id
-    ORDER BY experiences.created_at DESC
-";
+$onlyMine = isset($_GET["mine"]) && $_GET["mine"] == "1";
+$userId = $_SESSION["user_id"] ?? null;
 
-$result = $conn->query($query);
+$sql = "
+  SELECT experiences.*, users.username
+  FROM experiences
+  JOIN users ON experiences.user_id = users.id
+";
+if ($onlyMine && $userId) {
+  $sql .= " WHERE experiences.user_id = " . (int)$userId;
+}
+$sql .= " ORDER BY experiences.created_at DESC";
+
+$result = $conn->query($sql);
+
+include __DIR__ . "/includes/header.php";
 ?>
 
-<?php include __DIR__ . "/includes/header.php"; ?>
-<link rel="stylesheet" href="CSS/experiences.css">
-
-
-<!-- NAVBAR -->
-<nav class="navbar">
-    <div class="logo">ALTA TRAVEL BLOG</div>
-     <div class="menu" id="menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <ul class="nav-links" id="navLinks">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="destinations.php">Destinations</a></li>
-        <li><a href="aboutus.php">About Us</a></li>
-        <li><a href="experiences.php" class="active">Experiences</a></li>
-        <li><a href="contact.php">Contact Us</a></li>
-       
-        <?php if (isset($_SESSION["user_id"])): ?>
-            <?php if ($_SESSION["role"] === "admin"): ?>
-                <li><a href="dashboard.php">Dashboard</a></li>
-            <?php endif; ?>
-            <li><a href="logout.php">Logout (<?= htmlspecialchars($_SESSION["username"]) ?>)</a></li>
-        <?php else: ?>
-            <li><a href="login.php">Login</a></li>
-            <li><a href="signup.php">Sign Up</a></li>
-        <?php endif; ?>
-    </ul>
-</nav>
-
-<!-- EXPERIENCES -->
 <div class="experiences-container">
+  <div class="exp-topbar">
     <h1>User Experiences <span>🌍</span></h1>
+<!-- Experiences btn-->
+    <div class="exp-actions">
+      <?php if (isset($_SESSION["user_id"])): ?>
+        <a class="btn-exp" href="add_experience.php">+ Add Experience</a>
+        <a class="btn-exp secondary" href="experiences.php?mine=1">My Experiences</a>
+        <a class="btn-exp secondary" href="experiences.php">All</a>
+      <?php else: ?>
+        <a class="btn-exp" href="login.php">Log in to post</a>
+      <?php endif; ?>
+    </div>
+  </div>
 
-    <?php if ($result->num_rows === 0): ?>
-        <p class="no-experiences">No experiences shared yet.</p>
-    <?php else: ?>
-        <div class="experiences-grid">
-            <?php while ($exp = $result->fetch_assoc()): ?>
-                <div class="experience-card">
-                    <?php if (!empty($exp["image"])): ?>
-                        <img src="<?= htmlspecialchars($exp["image"]) ?>" alt="Experience image">
-                    <?php endif; ?>
+  <?php if (!$result || $result->num_rows === 0): ?>
+    <p class="no-experiences">No experiences shared yet.</p>
+  <?php else: ?>
+    <div class="experiences-grid">
+      <?php while ($exp = $result->fetch_assoc()): ?>
+        <div class="experience-card">
 
-                    <div class="experience-content">
-                        <h3><?= htmlspecialchars($exp["title"]) ?></h3>
-                        <p><?= nl2br(htmlspecialchars($exp["description"])) ?></p>
+          <?php if (!empty($exp["image"])): ?>
+            <img src="<?= $exp["image"] ?>" alt="Experience image">
+          <?php endif; ?>
 
-                        <div class="experience-meta">
-                            <span>👤 <?= htmlspecialchars($exp["username"]) ?></span>
-                            <span>📅 <?= date("d M Y", strtotime($exp["created_at"])) ?></span>
-                        </div>
-                    </div>
-                </div>
-            <?php endwhile; ?>
+          <div class="experience-content">
+            <h3><?= $exp["title"] ?></h3>
+            <p><?= $exp["description"] ?></p>
+
+            <div class="experience-meta">
+              <span>👤 <?= $exp["username"] ?></span>
+              <span>📅 <?= date("d M Y", strtotime($exp["created_at"])) ?></span>
+            </div>
+
+            <?php if (isset($_SESSION["user_id"]) && (int)$_SESSION["user_id"] === (int)$exp["user_id"]): ?>
+              <div class="post-actions">
+                <a href="edit_experience.php?id=<?= (int)$exp["id"] ?>">Edit</a>
+                <a href="delete_experience.php?id=<?= (int)$exp["id"] ?>"
+                   onclick="return confirm('Are you sure you want to delete this experience?')">Delete</a>
+              </div>
+            <?php endif; ?>
+
+          </div>
         </div>
-    <?php endif; ?>
+      <?php endwhile; ?>
+    </div>
+  <?php endif; ?>
 </div>
 
 <?php include __DIR__ . "/includes/footer.php"; ?>

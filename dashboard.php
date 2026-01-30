@@ -1,5 +1,6 @@
 <?php
 session_start();
+$currentPage = 'dashboard.php';
 require __DIR__ . "/includes/db.php";
 
 
@@ -50,29 +51,10 @@ $experiencesResult = $dashboard->getExperiences();
 include __DIR__ . "/includes/header.php";
 ?>
 
+
+<link rel="stylesheet" href="CSS/global.css">
 <link rel="stylesheet" href="CSS/dashboard.css">
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <div class="logo">ALTA TRAVEL BLOG</div>
-    <div class="menu" id="menu">
-        <span></span><span></span><span></span>
-    </div>
-
-    <ul class="nav-links" id="navLinks">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="destinations.php">Destinations</a></li>
-        <li><a href="aboutus.php">About Us</a></li>
-        <li><a href="contact.php">Contact Us</a></li>
-
-        <li><a href="dashboard.php" class="active">Dashboard</a></li>
-        <li>
-            <a href="logout.php">
-                Logout (<?= htmlspecialchars($_SESSION["username"]) ?>)
-            </a>
-        </li>
-    </ul>
-</nav>
 
 <div class="dashboard-container">
     <h1>Welcome, Admin 👋</h1>
