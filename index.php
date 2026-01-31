@@ -24,9 +24,6 @@ include __DIR__ . "/includes/header.php";
 ?>
 
 
-
-
-
 <!--Carousel-->
 <div class="slideshow-container">
     <div class="mySlides">

@@ -70,7 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 include __DIR__ . "/includes/header.php";
 ?>
 
-<link rel="stylesheet" href="CSS/signup.css">
 
 <div class="login-container">
     <h1 class="title">TRAVEL BLOG</h1>

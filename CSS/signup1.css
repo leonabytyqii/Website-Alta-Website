@@ -1,49 +1,4 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body{ min-height: 100vh; }
-.navbar {
-background: #0099a8;
-display: flex;
-justify-content: space-between;
-padding: 20px 60px;
-box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-width: 100%;
-}
 
-.logo {
-color: #ffea00;
-font: bold 22px Arial, sans-serif;
-}
-
-.nav-links {
-display: flex;
-list-style: none;
-gap: 35px;
-}
-
-.nav-links li a {
-color: #fff;
-text-decoration: none;
-font: 500 16px Arial, sans-serif;
-transition: 0.1s;
-}
-.nav-links li a:hover {
-  color: #ffe066;}
-
-.nav-links li a.active {
-    color: #ffea00;
-  }
-  .menu{
-     display: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-  }
- .menu span{
-  display: block;
-  width: 28px;
-  height: 3px;
-  background: white;
- }
 
 /*Sign up container*/
 body {
@@ -210,58 +165,7 @@ input {
 /*telefon*/
 @media (max-width: 767px){
 
-  .navbar {
-   flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 16px;
-      gap: 0;
-    position: relative; 
-}
-.nav-links{
-  display: none;
-  flex-direction: column;
-  position: absolute;
-   top: 100%;
-    left: 16px;
-    right: 16px;
-    background: rgba(0,0,0,0.25);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 10px;
-    gap: 8px;
-      z-index:999;
-}
-.logo{
-  font-size: 16px; 
- line-height: 1.1;
-    max-width: 70%;
-    word-break: break-word; 
-}
-.nav-links.show{
-  display: flex;   
-}
-.nav-links li a{
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 17px;
-  }
-.menu{
-  display: flex;
-    margin-left: 0;
-}
-.menu span{ transition: 0.2s; }
-
-  .menu.open span:nth-child(1){
-    transform: translateY(8px) rotate(45deg);
-  }
-  .menu.open span:nth-child(2){
-    opacity: 0;
-  }
-  .menu.open span:nth-child(3){
-    transform: translateY(-8px) rotate(-45deg);
-  }
-
+ 
 
 .login-container{
     max-width: 300px;

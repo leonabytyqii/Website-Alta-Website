@@ -1,5 +1,6 @@
 <?php
 session_start();
+$currentPage = 'login.php';
 require __DIR__ . "/includes/db.php";
 
 
@@ -54,11 +55,11 @@ class LoginHandler {
 
 $login = new LoginHandler($conn);
 $login->handleLogin();
-$currentPage = 'login.php';
+
 include __DIR__ . "/includes/header.php";
 ?>
 
-<link rel="stylesheet" href="/website-alta-website-1/CSS/login.css">
+
 
 
 

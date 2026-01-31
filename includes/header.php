@@ -8,18 +8,23 @@
 <link rel="stylesheet" href="/website-alta-website-1/CSS/global.css">
 
 <?php if ($currentPage == 'index.php'): ?>
-<link rel="stylesheet" href="/website-alta-website-1/CSS/index.css">
+<link rel="stylesheet" href="/website-alta-website-1/CSS/index2.css">
 <?php elseif ($currentPage == 'destinations.php'): ?>
 <link rel="stylesheet" href="/website-alta-website-1/CSS/destinations.css">
 <?php elseif ($currentPage == 'experiences.php'): ?>
 <link rel="stylesheet" href="/website-alta-website-1/CSS/experiences.css">
 <?php elseif ($currentPage == 'aboutus.php'): ?>
-<link rel="stylesheet" href="/website-alta-website-1/CSS/aboutus.css">
+<link rel="stylesheet" href="/website-alta-website-1/CSS/aboutus1.css">
 <?php elseif ($currentPage == 'contact.php'): ?>
 <link rel="stylesheet" href="/website-alta-website-1/CSS/contact.css">
 <?php elseif ($currentPage == 'dashboard.php'): ?>
 <link rel="stylesheet" href="/website-alta-website-1/CSS/dashboard.css">
+<?php elseif ($currentPage == 'login.php'): ?>
+<link rel="stylesheet" href="/website-alta-website-1/CSS/login1.css">
+<?php elseif ($currentPage == 'signup.php'): ?>
+<link rel="stylesheet" href="/website-alta-website-1/CSS/signup1.css">
 <?php endif; ?>
+</head>
 
 
 <body>

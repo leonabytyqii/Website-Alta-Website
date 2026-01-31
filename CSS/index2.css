@@ -361,9 +361,6 @@ padding: 15px;
   grid-template-columns: repeat(2, 350px);
   gap: 12px;
 }
- .navbar {
-    padding: 20px 20px;
-  }
 }
 
 

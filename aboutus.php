@@ -1,7 +1,8 @@
 <?php
 session_start();
 require __DIR__ . "/includes/db.php";
-
+ $currentPage = 'aboutus.php';
+include __DIR__ . "/includes/header.php";
 class AboutPage {
     private $conn;
 
@@ -26,8 +27,7 @@ class AboutPage {
 
 $page = new AboutPage(null);
 
- $currentPage = 'aboutus.php';
-include __DIR__ . "/includes/header.php";
+
 ?>
 
 

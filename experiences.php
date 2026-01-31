@@ -19,7 +19,7 @@ $sql .= " ORDER BY experiences.created_at DESC";
 $result = $conn->query($sql);
 
 include __DIR__ . "/includes/header.php";
-?>
+?> 
 
 <div class="experiences-container">
   <div class="exp-topbar">
@@ -72,3 +72,4 @@ include __DIR__ . "/includes/header.php";
 </div>
 
 <?php include __DIR__ . "/includes/footer.php"; ?>
+<script src="/website-alta-website-1/javascript/experiences.js"></script>
