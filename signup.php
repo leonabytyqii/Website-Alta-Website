@@ -5,37 +5,41 @@ require __DIR__ . "/includes/db.php";
 
 class SignupHandler {
     private $conn;
-    public $error = "";
+    public $errors = [];
 
     public function __construct($dbConnection) {
         $this->conn = $dbConnection;
     }
 
     public function registerUser($username, $email, $password, $confirm) {
+    if ($username === "") {
+    $this->errors["username"] = "Complete this field";
+}
 
-        if ($username === "" || $email === "" || $password === "" || $confirm === "") {
-            $this->error = "All fields are required.";
-            return false;
-        }
+if ($email === "") {
+    $this->errors["email"] = "Complete this field";
+}
 
-        if ($password !== $confirm) {
-            $this->error = "Passwords do not match.";
-            return false;
-        }
+if ($password === "") {
+    $this->errors["password"] = "Complete this field";
+}
 
-        $hashed = password_hash($password, PASSWORD_DEFAULT);
-        $role = "user";
+if ($confirm === "") {
+    $this->errors["confirm"] = "Complete this field";
+}
 
-        $stmt = $this->conn->prepare(
-            "INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)"
-        );
+if ($password !== "" && $confirm !== "" && $password !== $confirm) {
+    $this->errors["confirm"] = "Passwords do not match.";
+}
 
-        if (!$stmt) {
-            $this->error = "Database error.";
-            return false;
-        }
+if (!empty($this->errors)) {
+    return false;
+}
 
-        $stmt->bind_param("ssss", $username, $email, $hashed, $role);
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+        $stmt = $this->conn->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, 'user')");
+        $stmt->bind_param("sss", $username, $email, $hashedPassword);
 
        try {
     if ($stmt->execute()) {
@@ -77,11 +81,9 @@ include __DIR__ . "/includes/header.php";
     <div class="login-box">
         <h2>Sign Up</h2>
 
-        <?php if ($signup->error): ?>
-            <p class="error"><?= htmlspecialchars($signup->error) ?></p>
-        <?php endif; ?>
+      
 
-        <form method="POST" id="signupForm">
+        <form method="POST" id="signupForm" novalidate>
 
             <label>Username</label>
             <input type="text" id="username" name="username">
@@ -109,6 +111,6 @@ include __DIR__ . "/includes/header.php";
     </div>
 </div>
 
-<script src="javascript/signup.js"></script>
+<script src="javascript/signup1.js"></script>
 
 <?php include __DIR__ . "/includes/footer.php"; ?>

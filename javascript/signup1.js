@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
 
   form.addEventListener("submit", function (event) {
-
+   event.preventDefault();
     userError.textContent = "";
     emailError.textContent = "";
     passError.textContent = "";
@@ -24,33 +24,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let valid = true;
 
-    if (!usernameRegex.test(username.value.trim())) {
-      userError.textContent = "Username must be 4+ characters.";
+  if (username.value.trim() === "") {
+      userError.textContent = "Shkruaj username";
+      valid = false;
+    }else  if (!usernameRegex.test(username.value.trim())) {
+      userError.textContent = " Username duhet të ketë 4+ karaktere dhe vetëm shkronja/numra.";
       valid = false;
     }
 
-    if (!emailRegex.test(email.value.trim())) {
-      emailError.textContent = "Invalid email format.";
+
+  if (email.value.trim() === "") {
+      emailError.textContent = "Shkruaj email";
+      valid = false;
+    } else if (!emailRegex.test(email.value.trim())) {
+      emailError.textContent = "Formati i email-it është i pavlefshëm.";
       valid = false;
     }
 
-    if (!passwordRegex.test(password.value)) {
+     if (password.value === "") {
+      passError.textContent = "Shkruaj password";
+      valid = false;
+    } else if (!passwordRegex.test(password.value)) {
       passError.textContent =
-        "Password must contain 6+ characters uppercase, lowercase and number.";
+        "Password duhet të ketë 6+ karaktere, një shkronjë të madhe, një të vogël dhe një numër.";
       valid = false;
     }
 
-    if (password.value !== confirm.value) {
-      confirmError.textContent = "Passwords do not match.";
+
+   if (confirm.value === "") {
+      confirmError.textContent = "Shkruaj confirm password";
+      valid = false;
+    }else if (password.value !== confirm.value) {
+      confirmError.textContent = "Passwordet nuk përputhen.";
       valid = false;
     }
-
-    if (!valid) {
-      event.preventDefault();
+     if (valid) {
+      form.submit(); 
     }
   });
 
-  // MENU HAMBURGER
+  // menu
   const menu = document.getElementById("menu");
   const navLinks = document.getElementById("navLinks");
 
